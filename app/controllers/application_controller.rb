@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   # セッション有効期限延長
   before_filter :reset_session_expires
 
-  # Heroku用定期アクセス
+  # Heroku定期アクセス
   before_filter :heroku_periodic_access
 
   private
@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
   #------------------------#
   # heroku_periodic_access #
   #------------------------#
-  # Heroku用定期アクセス
+  # Heroku定期アクセス
   $timer_arry = Array.new
 
   def heroku_periodic_access
