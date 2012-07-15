@@ -69,7 +69,7 @@ class ApplicationController < ActionController::Base
     }
 
     EM.run do
-      targets = Target.where( user_id: session[:user_id] ).all
+      targets = Target.where( user_id: session[:user_id] ).order( "name ASC" ).all
       my_host = URI.parse( url_for(:root) ).host
 
       targets.each { |target|
