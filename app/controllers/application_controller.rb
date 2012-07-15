@@ -76,7 +76,6 @@ class ApplicationController < ActionController::Base
         if target.url.index( my_host ).nil?
           # 1分周期
           result = EM.add_periodic_timer( 60 ) do
-            puts "[ ----- #{Time.now.strftime("%Y/%m/%d %H:%M:%S")} #{target.name} ----- ]"
             url = target.url
             parsed_url = URI.parse( url )
             http = Net::HTTP.new( parsed_url.host, parsed_url.port )
@@ -89,9 +88,7 @@ class ApplicationController < ActionController::Base
             request = Net::HTTP::Get.new( parsed_url.request_uri )
             response = http.request( request )
 
-            print "[ #{target.name} - response ] : " ; p response ;
-            puts "[ ------------------------------------------- ]"
-            puts
+            print "[ #{Time.now.strftime("%Y/%m/%d %H:%M:%S")} #{target.name} ] : " ; p response ;
           end
 
           # タイマー保管
