@@ -1,0 +1,15 @@
+
+<p>
+  <b>User:</b><%= @target.user_id %>
+</p>
+
+<p>
+  <b>Name:</b><%= @target.name %>
+</p>
+
+<p>
+  <b>Url:</b><%= @target.url %>
+</p>
+
+<%= link_to t( "menu.edit" ), action: "edit", id: @target.id %>
+ | <%= link_to t( "menu.list" ), action: "index" %>

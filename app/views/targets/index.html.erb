@@ -1,0 +1,33 @@
+
+<h1>Listing targets</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Name</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @targets.each{ |target| %>
+  <tr>
+    <td><%= target.user_id %></td>
+    <td><%= target.name %></td>
+    <td><%= target.url %></td>
+    <td><%= link_to t( "menu.show" ), action: "show", id: target.id %></td>
+    <td><%= link_to t( "menu.edit" ), action: "edit", id: target.id %></td>
+    <td><%= link_to t( "menu.destroy" ), { action: "destroy", id: target.id }, onclick: "return confirm('本当に削除してよろしいですか？');" %></td>
+  </tr>
+<% } %>
+</table>
+
+<br />
+
+<%= link_to t( "menu.new" ), action: "new" %>
+
+<br />
+<br />
+
+<%= link_to t( "menu.top" ), :root %>

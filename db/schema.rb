@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20000101000000) do
+ActiveRecord::Schema.define(:version => 20120715180618) do
+
+  create_table "access_logs", :force => true do |t|
+    t.integer  "target_id"
+    t.integer  "user_id"
+    t.text     "response"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "targets", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "provider"
