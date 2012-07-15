@@ -91,6 +91,7 @@ class ApplicationController < ActionController::Base
 
             print "[ #{target.name} - response ] : " ; p response ;
             puts "[ ------------------------------------------- ]"
+            puts
           end
 
           # タイマー保管
