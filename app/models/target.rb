@@ -29,7 +29,7 @@ class Target < ActiveRecord::Base
       targets.each { |target|
         if target.url.index( my_host ).nil?
           # 1分周期
-          result = EM.add_periodic_timer( 10 ) do
+          result = EM.add_periodic_timer( 60 ) do
             url = target.url
             parsed_url = URI.parse( url )
             http = Net::HTTP.new( parsed_url.host, parsed_url.port )
